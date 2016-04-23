@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:progressTint="@color/colorAccent"
-            android:visibility="gone" />
+            android:visibility="visible"
+            android:foregroundTint="@color/colorAccent" />
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"

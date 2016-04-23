@@ -24,7 +24,7 @@ android {
             targetSdkVersion 21
             versionCode 1
             versionName '1.0'
-            buildConfigField 'String', 'HOST', '"http://personaltutor.uta.ngrok.io/PersonalTutorServiceWebService/PTSWebService/"'
+            buildConfigField 'String', 'HOST', '"http://eae01c1a.ngrok.io/PersonalTutorServiceWebService/PTSWebService/"'
             buildConfigField 'String', 'PREF_FILE', '"MyPref"'
         }
     }
@@ -46,4 +46,5 @@ dependencies {
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.google.maps:google-maps-services:0.1.11'
     compile 'com.google.android.gms:play-services-ads:8.4.0'
+    compile 'com.android.support:support-v4:23.2.1'
 }

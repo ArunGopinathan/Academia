@@ -121,12 +121,12 @@ public class NearbyTutorsActivity extends FragmentActivity implements OnMapReady
             Service[] services_list = list.toArray(new Service[list.size()]);
             for (Service s : services_list) {
                 if (s.getUser().getUserId() == Integer.parseInt(userId)) {
-                    LatLng userLocation = new LatLng(Double.parseDouble(s.getServiceLattitude()), Double.parseDouble(s.getServiceLongitude()));
+                   // LatLng userLocation = new LatLng(Double.parseDouble(s.getServiceLattitude()), Double.parseDouble(s.getServiceLongitude()));
 
-                    Marker marker = mMap.addMarker(new MarkerOptions().position(userLocation).title("My Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                   /* Marker marker = mMap.addMarker(new MarkerOptions().position(userLocation).title("My Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                     //  idtoUserId.put(marker.getId(),s.getUser().getUserId()+"");
                     builder.include(userLocation);
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));*/
                 } else {
                     LatLng serviceLocation = new LatLng(Double.parseDouble(s.getServiceLattitude()), Double.parseDouble(s.getServiceLongitude()));
                     DecimalFormat df = new DecimalFormat("#.##");
@@ -138,6 +138,16 @@ public class NearbyTutorsActivity extends FragmentActivity implements OnMapReady
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(serviceLocation));
                 }
             }
+            SharedPreferenceHelper helper = new SharedPreferenceHelper(getApplicationContext(), BuildConfig.PREF_FILE);
+            String lattitude = helper.getValueFromSharedPreferencesForKey(AppConstants.LATTITUDE,null);
+            String longitude = helper.getValueFromSharedPreferencesForKey(AppConstants.LONGITUDE,null);
+            if(lattitude!=null && longitude !=null){
+                LatLng userLocation = new LatLng(Double.parseDouble(lattitude), Double.parseDouble(longitude));
+                Marker marker = mMap.addMarker(new MarkerOptions().position(userLocation).title("My Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                builder.include(userLocation);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+            }
+
             LatLngBounds bounds = builder.build();
             int padding = 0; // offset from edges of the map in pixels
             CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);

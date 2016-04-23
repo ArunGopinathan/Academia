@@ -1,47 +1,429 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="edu.uta.cse.academia.Activities.HomeActivity"
-    tools:showIn="@layout/app_bar_home">
+    tools:showIn="@layout/app_bar_home"
+    android:fillViewport="false">
+<LinearLayout
 
-    <com.quinny898.library.persistentsearch.SearchBox
-        android:id="@+id/searchbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
 
-        />
+<com.quinny898.library.persistentsearch.SearchBox
+    android:id="@+id/searchbox"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="visible"
 
-    <TextView android:id="@+id/noCourseFoundTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:text="(No Courses Found)" />
+    />
+
+<TextView
+    android:id="@+id/noCourseFoundTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="(No Courses Found)"
+    android:textSize="18sp"
+    android:visibility="gone" />
 
 
-    <android.support.v7.widget.CardView
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_results_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent" android:id="@+id/search_results_list"
-            android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+</android.support.v7.widget.CardView>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="2"
+            android:padding="10dp"
+            android:text="Sponsored Courses"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.52"
+            android:gravity="right"
+            android:text="More.." />
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scrollbarAlwaysDrawVerticalTrack="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+
+                        android:layout_width="35sp"
+                        android:layout_height="16sp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ad_icon"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="78dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:text="Android Course by Arun Gopinathan" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+
+                        android:layout_width="35sp"
+                        android:layout_height="16sp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ad_icon"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="78dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:text="Build iOS Apps by Funda Karapinar-Reilly" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- <android.support.v7.widget.CardView
+                 android:layout_width="100dp"
+                 android:layout_height="150dp"
+                 app:cardUseCompatPadding="true">
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:orientation="vertical">
+                     <ImageView
+
+                         android:layout_width="35sp"
+                         android:layout_height="16sp"
+                         android:layout_marginRight="10dp"
+                         android:layout_marginTop="2dp"
+                         android:background="@drawable/ad_icon"
+                         android:visibility="visible" />
+
+                     <ImageView
+                         android:layout_width="50dp"
+                         android:layout_height="50dp"
+                         android:layout_gravity="center"
+                         android:src="@mipmap/ic_launcher" />
+
+                     <TextView
+                         android:layout_width="78dp"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="center"
+                         android:padding="3dp"
+                         android:text="Piano By Mousa Almotairi" />
+                 </LinearLayout>
+
+             </android.support.v7.widget.CardView>-->
+
+            <!--
+                            <android.support.v7.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="130dp"
+                                app:cardUseCompatPadding="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="center"
+                                        android:src="@mipmap/ic_launcher" />
+
+                                    <TextView
+                                        android:layout_width="78dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:padding="3dp"
+                                        android:text="Crunch Big Data With Arun" />
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="130dp"
+                                app:cardUseCompatPadding="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="center"
+                                        android:src="@mipmap/ic_launcher" />
+
+                                    <TextView
+                                        android:layout_width="78dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:padding="3dp"
+                                        android:text="Python For Data Scientists and Machine Learning" />
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+            -->
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="2"
+                android:padding="10dp"
+                android:text="Recommended Courses"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:layout_weight="0.52"
+                android:gravity="right"
+                android:text="More.." />
+
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scrollbarAlwaysDrawVerticalTrack="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="horizontal">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="130dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:layout_width="78dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="3dp"
+                            android:text="Complete Android Developer Course" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="130dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:layout_width="78dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="3dp"
+                            android:text="Complete Web Developer Course" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="130dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:layout_width="78dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="3dp"
+                            android:text="Complete Nodejs For Dummies.." />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="130dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:layout_width="78dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="3dp"
+                            android:text="Crunch Big Data With Arun" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="130dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:layout_width="78dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="3dp"
+                            android:text="Python For Data Scientists and Machine Learning" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+        </HorizontalScrollView>
 
 
-        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
 
-
-    </android.support.v7.widget.CardView>
 
 </LinearLayout>
+</LinearLayout></ScrollView>

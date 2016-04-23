@@ -6,7 +6,7 @@
     <color name="colorAccent">#FF4081</color>-->
     <color name="colorPrimary">#37474F</color>
     <color name="colorPrimaryDark">#263238</color>
-    <color name="colorAccent">#00C853</color>
+    <color name="colorAccent">#00c853</color>
     <color name="white">#ffffff</color>
 
     <item name="blue" type="color">#FF33B5E5</item>
