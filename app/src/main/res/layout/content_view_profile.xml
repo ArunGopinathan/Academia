@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="edu.uta.cse.academia.Activities.ViewProfileActivity"
+    tools:showIn="@layout/activity_view_profile">
+
+    <!-- <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="@dimen/text_margin"
+         android:text="@string/large_text" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/viewprofileprogressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:progressTint="@color/colorAccent"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/nameCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            app:cardCornerRadius="2dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_contacts_black_24dp"
+                    android:text="@string/name"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <android.support.design.widget.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/FirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/logoImageView"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:hint="@string/firstname"
+                        android:padding="10dp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/LastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/FirstName"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:hint="@string/lastname"
+                        android:padding="10dp" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                    android:text="@string/address"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+
+                        android:id="@+id/AddressLine1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/userTypeSpinner"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:hint="@string/addressline1"
+                        android:inputType="text|textPostalAddress"
+                        android:padding="10dp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+
+                        android:id="@+id/AddressLine2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtAddressLine1"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:hint="@string/addressline2"
+                        android:inputType="text|textPostalAddress"
+                        android:padding="10dp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/City"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtAddressLine2"
+                            android:background="@android:color/transparent"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:hint="@string/city"
+                            android:inputType="text|textPostalAddress"
+                            android:padding="10dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/State"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtCity"
+                            android:background="@android:color/transparent"
+                            android:clickable="false"
+                            android:completionThreshold="1"
+                            android:focusable="false"
+                            android:hint="@string/state"
+                            android:inputType="text|textPostalAddress"
+                            android:padding="10dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/ZipCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtState"
+                            android:background="@android:color/transparent"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:hint="@string/zipcode"
+                            android:inputType="number"
+                            android:padding="10dp" />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:drawableLeft="@drawable/ic_phone_black_24dp"
+                    android:focusable="false"
+                    android:text="@string/communication"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/Email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:hint="@string/email"
+                            android:inputType="textEmailAddress"
+                            android:padding="10dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/EmailCardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:elevation="1dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardUseCompatPadding="true">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/email" />
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/PhoneNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtZipCode"
+                            android:background="@android:color/transparent"
+                            android:clickable="false"
+
+                            android:focusable="false"
+                            android:hint="@string/phonenumber"
+                            android:inputType="phone"
+                            android:padding="10dp"
+                            android:textStyle="" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/PhoneCardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:elevation="1dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardUseCompatPadding="true">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_call" />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/smsCardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:elevation="1dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardUseCompatPadding="true">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_forum" />
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Teaching Courses"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/NoCoursesYet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="(No Courses Yet)"
+                    android:visibility="gone" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/frag_updateprofile_service_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
