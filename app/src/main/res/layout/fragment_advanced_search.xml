@@ -5,224 +5,242 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.AdvancedSearchFragment">
 
-  <ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" android:orientation="vertical">
-          <android.support.v7.widget.CardView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              app:cardUseCompatPadding="true">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardUseCompatPadding="true">
 
-                  <TextView
-                      style="bold"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:drawableLeft="@drawable/ic_assignment_black_24dp"
-                      android:text="@string/category"
-                      android:textSize="20dp"
-                      android:textStyle="bold" />
-                  <android.support.design.widget.TextInputLayout
-
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content">
-                      <AutoCompleteTextView
-                          android:id="@+id/categoryAutoCompleteTextView"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_below="@+id/textView"
-                          android:hint="@string/enter_category"
-
-                          android:padding="10dp" />
-                  </android.support.design.widget.TextInputLayout>
-                  <android.support.design.widget.TextInputLayout
-
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content">
-
-                      <AutoCompleteTextView
-                          android:id="@+id/subCategoryAutoCompleteTextView"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_alignParentStart="true"
-                          android:layout_below="@+id/categoryAutoCompleteTextView"
-                          android:hint="@string/enter_sub_category"
-                          android:padding="10dp" />
-                  </android.support.design.widget.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
 
-              </LinearLayout>
+                    <TextView
+                        style="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_assignment_black_24dp"
+                        android:text="@string/category"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-          </android.support.v7.widget.CardView>
-          <android.support.v7.widget.CardView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              app:cardUseCompatPadding="true">
+                    <android.support.design.widget.TextInputLayout
 
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                  <TextView
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:drawableLeft="@drawable/ic_credit_card_black_24dp"
-                      android:text="@string/Price"
-                      android:textSize="20sp"
-                      android:textStyle="bold" />
+                        <AutoCompleteTextView
+                            android:id="@+id/categoryAutoCompleteTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textView"
+                            android:hint="@string/enter_category"
 
-                  <TextView
-                      android:id="@+id/labelPrice"
-                      style="@android:style/Widget.EditText"
-                      android:layout_width="fill_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_below="@+id/subCategoryAutoCompleteTextView"
-                      android:layout_toEndOf="@+id/labelSelectPrice"
-                      android:padding="10dp"
-                      android:text="@string/initial_price"
-                      android:textSize="18sp"
-                      android:textStyle="bold" />
+                            android:padding="10dp" />
+                    </android.support.design.widget.TextInputLayout>
 
-                  <SeekBar
-                      android:id="@+id/priceSeekBar"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_below="@+id/labelSelectPrice"
-                      android:layout_marginStart="15dp"
-                      android:max="100"
-                      android:paddingLeft="30dp"
-                      android:progress="5"
+                    <android.support.design.widget.TextInputLayout
 
-                      />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-              </LinearLayout>
-          </android.support.v7.widget.CardView>
-          <android.support.v7.widget.CardView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              app:cardUseCompatPadding="true">
+                        <AutoCompleteTextView
+                            android:id="@+id/subCategoryAutoCompleteTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_below="@+id/categoryAutoCompleteTextView"
+                            android:hint="@string/enter_sub_category"
+                            android:padding="10dp" />
+                    </android.support.design.widget.TextInputLayout>
 
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical">
 
-                  <TextView
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/labelAvailability"
-                      android:drawableLeft="@drawable/ic_event_available_black_24dp"
-                      android:text="@string/availability"
-                      android:textSize="20dp"
-                      android:textStyle="bold" />
+                </LinearLayout>
 
-                  <LinearLayout
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal">
+            </android.support.v7.widget.CardView>
 
-                      <CheckBox
-                          android:id="@+id/checkBoxMon"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:padding="10dp"
-                          android:text="Mon" />
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardUseCompatPadding="true">
 
-                      <CheckBox
-                          android:id="@+id/checkBoxTue"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:padding="10dp"
-                          android:text="Tue" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                      <CheckBox
-                          android:id="@+id/checkBoxWed"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:padding="10dp"
-                          android:text="Wed" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_credit_card_black_24dp"
+                        android:text="@string/Price"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                      <CheckBox
-                          android:id="@+id/checkBoxThu"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:padding="10dp"
-                          android:text="Thu" />
-                  </LinearLayout>
+                    <TextView
+                        android:id="@+id/labelPrice"
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/subCategoryAutoCompleteTextView"
+                        android:layout_toEndOf="@+id/labelSelectPrice"
+                        android:padding="10dp"
+                        android:text="@string/initial_price"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                  <LinearLayout
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal">
+                    <SeekBar
+                        android:id="@+id/priceSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/labelSelectPrice"
+                        android:layout_marginStart="15dp"
+                        android:max="100"
+                        android:paddingLeft="30dp"
+                        android:progress="5"
 
-                      <CheckBox
-                          android:id="@+id/checkBoxFri"
+                        />
 
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:padding="10dp"
-                          android:text="Fri" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-                      <CheckBox
-                          android:id="@+id/checkBoxSat"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="10dp"
-                          android:padding="10dp"
-                          android:text="Sat" />
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardUseCompatPadding="true">
 
-                      <CheckBox
-                          android:id="@+id/checkBoxSun"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="5dp"
-                          android:padding="10dp"
-                          android:text="Sun" />
-                  </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-              </LinearLayout>
+                    <TextView
+                        android:id="@+id/labelAvailability"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_event_available_black_24dp"
+                        android:text="@string/availability"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-          </android.support.v7.widget.CardView>
-          <android.support.v7.widget.CardView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              app:cardUseCompatPadding="true">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical">
+                        <CheckBox
+                            android:id="@+id/checkBoxMon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Mon" />
 
-                  <TextView
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:drawableLeft="@drawable/ic_card_travel_black_24dp"
-                      android:text="@string/distance_travel"
-                      android:textSize="20sp"
-                      android:textStyle="bold" />
+                        <CheckBox
+                            android:id="@+id/checkBoxTue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Tue" />
 
-                  <Spinner
-                      android:id="@+id/travelInMilesSpinner"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_below="@+id/textViewEndTime"
-                      android:entries="@array/travel_miles"
-                      android:padding="10dp"
-                      android:spinnerMode="dialog" />
-              </LinearLayout>
+                        <CheckBox
+                            android:id="@+id/checkBoxWed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Wed" />
 
-          </android.support.v7.widget.CardView>
+                    </LinearLayout>
 
-      </LinearLayout>
-  </ScrollView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkBoxThu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Thu" />
+
+                        <CheckBox
+                            android:id="@+id/checkBoxFri"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Fri" />
+
+                        <CheckBox
+                            android:id="@+id/checkBoxSat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:padding="10dp"
+                            android:text="Sat" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkBoxSun"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="1dp"
+                            android:padding="10dp"
+                            android:text="Sun" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_card_travel_black_24dp"
+                        android:text="@string/distance_travel"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/travelInMilesSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textViewEndTime"
+                        android:entries="@array/travel_miles"
+                        android:padding="10dp"
+                        android:spinnerMode="dialog" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

@@ -78,6 +78,7 @@ public class HomeActivity extends AppCompatActivity
                 fragment.show(getFragmentManager(), "missiles");*/
 
                 AdvancedSearchFragment fragment = new AdvancedSearchFragment();
+                fragment.show(getFragmentManager(),"AdvancedSearch");
 
             }
         });

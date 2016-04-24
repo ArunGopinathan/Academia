@@ -1,6 +1,10 @@
 package edu.uta.cse.academia.Fragments;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,12 +23,12 @@ import edu.uta.cse.academia.R;
  * Use the {@link AdvancedSearchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AdvancedSearchFragment extends Fragment {
+public class AdvancedSearchFragment extends DialogFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    View mView;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -63,10 +67,27 @@ public class AdvancedSearchFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public Dialog onCreateDialog(Bundle bundle) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_advanced_search, container, false);
+       // return inflater.inflate(R.layout.fragment_advanced_search, container, false);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        mView = inflater.inflate(R.layout.fragment_advanced_search, null);
+       // initView(mView);
+        builder.setView(mView).setPositiveButton("Search", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        return builder.create();
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
