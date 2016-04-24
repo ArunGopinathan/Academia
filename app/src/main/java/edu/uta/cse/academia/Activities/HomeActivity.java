@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
@@ -43,11 +44,12 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import edu.uta.cse.academia.Adapters.ServicesListAdapter;
-import edu.uta.cse.academia.Fragments.AdvancedSearchFragment;
 import edu.uta.cse.academia.BuildConfig;
 import edu.uta.cse.academia.Constants.AppConstants;
+import edu.uta.cse.academia.Fragments.AdvancedSearchFragment;
 import edu.uta.cse.academia.Models.Services;
 import edu.uta.cse.academia.R;
+import edu.uta.cse.academia.helpers.HttpHelper;
 import edu.uta.cse.academia.helpers.SharedPreferenceHelper;
 
 public class HomeActivity extends AppCompatActivity
@@ -62,6 +64,7 @@ public class HomeActivity extends AppCompatActivity
     LinearLayoutManager layoutManager;
     LinearLayout serviceListLinearLayout;
     TextView noCoursesView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +81,7 @@ public class HomeActivity extends AppCompatActivity
                 fragment.show(getFragmentManager(), "missiles");*/
 
                 AdvancedSearchFragment fragment = new AdvancedSearchFragment();
-                fragment.show(getFragmentManager(),"AdvancedSearch");
+                fragment.show(getFragmentManager(), "AdvancedSearch");
 
             }
         });
@@ -152,7 +155,7 @@ public class HomeActivity extends AppCompatActivity
 
             @Override
             public void onSearch(String s) {
-              //  Toast.makeText(HomeActivity.this, "searched->" + s, Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(HomeActivity.this, "searched->" + s, Toast.LENGTH_SHORT).show();
                 getAllServicesAsyncTask task = new getAllServicesAsyncTask();
                 try {
                     task.execute(URLEncoder.encode(s, "utf-8"));
@@ -197,6 +200,8 @@ public class HomeActivity extends AppCompatActivity
             }
             searchBox.populateEditText(resultString);
         }
+
+
     }
 
     @Override
@@ -278,6 +283,19 @@ public class HomeActivity extends AppCompatActivity
         return true;
     }
 
+    private Services advancedSearchFor(String request) {
+        String result = "";
+        HttpHelper helper = new HttpHelper();
+        String url = hostname + "AdvancedSearch/";
+        result = helper.executeHttpPostRequest(url, request);
+        Gson gson = new Gson();
+        JsonParser parser = new JsonParser();
+        JsonObject jsonObject = (JsonObject) parser.parse(result);
+        JsonElement element = jsonObject.get("Services");
+        Services services = gson.fromJson(jsonObject.toString(), Services.class);
+        return services;
+    }
+
     private String searchFor(String query) {
         String result = "";
         DefaultHttpClient httpclient = new DefaultHttpClient();
@@ -312,6 +330,39 @@ public class HomeActivity extends AppCompatActivity
         return result;
     }
 
+    private class performAdvancedSearchAsyncTask extends AsyncTask<String, Void, Services> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected Services doInBackground(String... strings) {
+
+            return advancedSearchFor(strings[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Services aVoid) {
+            super.onPostExecute(aVoid);
+            services = aVoid;
+            if (aVoid != null) {
+                slAdapeter = new ServicesListAdapter(getApplicationContext(), aVoid);
+                searchResultsRecycleView.setAdapter(slAdapeter);
+            }
+            if (slAdapeter.getItemCount() == 0) {
+                noCoursesView.setVisibility(View.VISIBLE);
+            } else {
+                noCoursesView.setVisibility(View.GONE);
+            }
+            int viewHeight = slAdapeter.getItemCount() * 225;
+            searchResultsRecycleView.getLayoutParams().height = viewHeight;
+            Log.w("PTS-Android", "cardView Height " + viewHeight);
+            Log.w("PTS-Android", "Itemcount: " + slAdapeter.getItemCount());
+        }
+    }
+
     private class getAllServicesAsyncTask extends AsyncTask<String, Void, Void> {
         @Override
         protected void onPreExecute() {
@@ -328,7 +379,7 @@ public class HomeActivity extends AppCompatActivity
         protected void onPostExecute(Void aVoid) {
             Log.w("PTS-Android", services.toString());
             if (services != null) {
-               // noCoursesView.setVisibility(View.GONE);
+                // noCoursesView.setVisibility(View.GONE);
                 slAdapeter = new ServicesListAdapter(getApplicationContext(), services);
                 searchResultsRecycleView.setAdapter(slAdapeter);
                /* LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -336,8 +387,7 @@ public class HomeActivity extends AppCompatActivity
                 CardView cv = (CardView) inflatedView.findViewById(R.id.frag_course_cv_all_service);*/
                 if (slAdapeter.getItemCount() == 0) {
                     noCoursesView.setVisibility(View.VISIBLE);
-                }
-                else{
+                } else {
                     noCoursesView.setVisibility(View.GONE);
                 }
                 int viewHeight = slAdapeter.getItemCount() * 225;
@@ -398,6 +448,16 @@ public class HomeActivity extends AppCompatActivity
         @Override
         public void onTouchEvent(RecyclerView rv, MotionEvent e) {
 
+        }
+    }
+
+    public void onUserSelectValue(String selectedValue) {
+
+        // TODO add your implementation.
+        //    Toast.makeText(getBaseContext(), ""+ selectedValue, Toast.LENGTH_LONG).show();
+        if (!TextUtils.isEmpty(selectedValue)) {
+            performAdvancedSearchAsyncTask task = new performAdvancedSearchAsyncTask();
+            task.execute(selectedValue);
         }
     }
 
